@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatisTest.dao.EmployeeMapper">
+	<!--namespace:名称空间;指定为接口的全类名-->
+<!-- 
+
+id：唯一标识
+resultType：返回值类型
+#{id}：从传递过来的参数中取出id值
+
+public Employee getEmpById(Integer id);-->
+	<!--getEmpById是取到这条数据的唯一标识,用于绑定接口中的方法,mybatisTest.bean.Employee是返回对象 全路径-->
+
+<!--利用mybatis-config.xml配置文件配置的别名为employee的对象-->
+	<!--批量取别名,默认名字为类名的小写-->
+	<!--也可以使用注解的方式取别名@Alias("emp"),别名不区分大小写-->
+
+	<select id="getEmpById" resultType="mybatisTest.bean.Employee">
+
+		select * from tbl_employee where id = #{id}
+	</select>
+</mapper>
